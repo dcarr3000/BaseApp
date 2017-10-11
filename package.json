@@ -4,5 +4,10 @@
     "keywords": ["util", "functional", "server", "client", "browser"],
     "author": "David",
     "contributors": [],
-    "dependencies": {}
+    "dependencies": {
+        "express": "^4.0.0"
+    },
+    "scripts": {
+        "start": "node server/server.js"
+    }
 }
