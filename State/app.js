@@ -8,20 +8,20 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {	//function call
 		controller:'MapController',
 		controllerAs:'MapController',
 		templateUrl:'partial-map.html'
-		});/*
+		},
 		{
 		name:'home', 					//sets path for page and states where content is
 		url:'/home',					
 		templateUrl:'partial-home.html'
-		}
+		},
 		{
 		name:'about',
 		url:'/about',
 		templateUrl:'partial-about.html'
-		}
+		},
 		{
 		name:'feedback', 
 		url:'/feedback',
 		templateUrl:'partial-feedback.html'
-	});*/
+	});
 });
