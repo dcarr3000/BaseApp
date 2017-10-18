@@ -1,22 +1,45 @@
 <html>
     <head>
         <meta charset="utf-8">
-		<title> LFT Open Data in (AngularJS)</title>
+		<title> Test App</title>
 		<meta name="description" content="">
 		<meta name="author" content="bmnorwoo">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <!--css-->
+        <style type="text/css">
+            html, body, #map_canvas {
+                height: 95%;
+                width: 95%;
+                margin: 0px;
+            }
+
+            #map_canvas {
+                position: relative;
+            }
+
+            .angular-google-map-container {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+            }
+        </style>
     </head>
     <body>
-        <div class="container-fluid" ng-app="app-test">
+        <div class="container-fluid" data-ng-app="app">
             <div class="row">
                 <div class="col-xs-12">
                     <h1>
-                        <span>Testing out the open data portal with AngularJS</span>
-                        <a ui-sref="dashboard" class="btn btn-primary"           ui-sref-active="btn-success">Query when 1=1 (all data & very slow if data set huge)</a>
-                        <a ui-sref="spatialQueryExample" class="btn btn-primary" ui-sref-active="btn-success">Spatial Ref Query Test</a>
+                        <span>Lafayette Public Art</span>
+                        <a data-ui-sref="home" class="btn btn-primary"           ui-sref-active="btn-success">Home</a>
+                        <a data-ui-sref="about" class="btn btn-primary" ui-sref-active="btn-success">About</a>
+                        <a data-ui-sref="map" class="btn btn-primary" ui-sref-active="btn-success">Map</a>
+                        <a data-ui-sref="feedback" class="btn btn-primary" ui-sref-active="btn-success">Feedback</a>
                     </h1>
                 </div>
                 <div class="col-xs-12"><div data-ui-view></div></div>
@@ -31,6 +54,10 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.6/angular-resource.js"></script>
             <!-- Angular JS plugin: ui.router (helpful if you want to create a stateful app) -->
             <script src="http://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+            
+            <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+            <script src="https://rawgit.com/nmccready/angular-simple-logger/master/dist/angular-simple-logger.js"></script>
+            <script src="http://rawgit.com/angular-ui/angular-google-maps/master/dist/angular-google-maps.js"></script>
             
             <!-- Bootstrap requires jQuery -->
             <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script
