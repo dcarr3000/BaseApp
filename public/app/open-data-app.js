@@ -1,7 +1,9 @@
 (function(angular){
     'use strict';
     
-    var app = angular.module('app-test', ['ui.router', 'ngResource']);
+    var app = angular.module('app', ['ui.router', 'ngResource', 'uiGmapgoogle-maps']);
+    
+
     
     //module config
     app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
@@ -11,8 +13,7 @@
             url: '/dashboard',
             controller: 'DashboardStateController', //Matches controller name as defined in angular
             controllerAs: 'DashboardStateController', //Gives the controller a specific name in the html template/view
-            templateUrl: 'map.html', //with a node server, you should be able to make use of templateUrl here
-            //templateUrl: '/map.html', //with a node server, you should be able to make use of templateUrl here
+            template: '<p ng-bind="DashboardStateController.bindingContainer | json"></p>', //with a node server, you should be able to make use 
             resolve: {
                 lafayetteArt: ['OpenDataQueryService', function(OpenDataQueryService){
                     var queryParams = {
@@ -25,6 +26,41 @@
                     return OpenDataQueryService.query(queryParams);
                 }]
             }
+            
+            
+        });
+        
+        $stateProvider.state({
+            name:'map',
+            url:'/map',
+            controller: 'MapController',
+            controllerAs: 'MapController',
+            templateUrl: 'partial-map.html'
+            
+        });
+        
+         $stateProvider.state({
+            name:'about',
+            url:'/about',
+            
+            templateUrl: 'partial-about.html'
+            
+        });
+        
+         $stateProvider.state({
+            name:'home',
+            url:'/home',
+            
+            templateUrl: 'partial-home.html'
+            
+        });
+        
+         $stateProvider.state({
+            name:'feedback',
+            url:'/feedback',
+            
+            templateUrl: 'partial-feedback.html'
+            
         });
         
         $stateProvider.state({
@@ -64,6 +100,16 @@
                 arcGISsvcs: 'https://services.arcgis.com/:apiToken/arcgis/rest/services/:feature/FeatureServer/:layer/:action'
             }
         }
+    });
+    
+    app.controller('MapController', function( $http) {
+        
+        this.map = {center: {latitude: 30.2247601, longitude: -92.0136968 }, zoom: 16 };
+        this.options = {scrollwheel: false};
+        $http.get("https://services.arcgis.com/xQcS4egPbZO43gZi/arcgis/rest/services/Lafayette_Public_Art/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json").then(angular.bind(this ,function (response){
+          
+          this.myData = response.data.features;
+      }));
     });
     
     /**
