@@ -1,107 +1,25 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-		<title> Test App</title>
-		<meta name="description" content="">
-		<meta name="author" content="bmnorwoo">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="css\TestAppStyle.css">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
-    </head>
-
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<a data-ui-sref="Sculptures" class="btn btn-primary" ui-sref-active="btn-success">Sculptures</a>
-                <a data-ui-sref="Murals" class="btn btn-primary" ui-sref-active="btn-success">Murals</a>
-				<a data-ui-sref="All" class="btn btn-primary" ui-sref-active="btn-success">All Art</a>
-			</div>
-		</div>
-
-    <div id="map_canvas" >
-     <div > 
-  
-    <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Mural'" options="{icon: 'paleblue_MarkerM.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-         <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Sculpture'" options="{icon: 'blue_MarkerS.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Bench'" options="{icon: 'darkgreen_MarkerB.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Bike rack'" options="{icon: 'orange_MarkerB.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Ceramic'" options="{icon: 'pink_MarkerC.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker>
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Interactive Art'" options="{icon: 'purple_MarkerI.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Plant Art'" options="{icon: 'green_MarkerP.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Stained Glass'" options="{icon: 'red_MarkerS.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-        <ui-gmap-marker ng-repeat="x in MapController.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Street art'" options="{icon: 'yellow_MarkerS.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker>
-        <ui-gmap-marker ng-repeat="x in Mapcontroller.myData" coords="{ 'latitude': x.geometry.y, 'longitude': x.geometry.x}" ng-if="x.attributes.Type == 'Statue'" options="{icon: 'brown_MarkerS.png'}"  idkey="1">
-            <ui-gmap-window>
-        <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
-      </ui-gmap-window>
-        </ui-gmap-marker> 
-         </ui-gmap-google-map>
-          
-</div>
-     
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <a data-ui-sref="Sculptures" class="btn btn-primary" ui-sref-active="btn-success">Sculptures</a>
+            <a data-ui-sref="Murals" class="btn btn-primary" ui-sref-active="btn-success">Murals</a>
+            <a data-ui-sref="All" class="btn btn-primary" ui-sref-active="btn-success">All Art</a>
+        </div>
+        <div class="col-md-12">
+            <div id="map_canvas">
+                 <div >
+                    <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
+                        <ui-gmap-marker ng-repeat="point in MapController.myData" coords="{ 'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point)"  idkey="1">
+                            <ui-gmap-window>
+                                <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
+                            </ui-gmap-window>
+                        </ui-gmap-marker> 
+                    </ui-gmap-google-map>
+                </div>
+            </div>
+        </div>
     </div>
-	
-		<div id="3rdParty-scripts">
-			<!-- Angular JS-->
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
-            <!-- Angular JS plugin: ngResource (contains components/tools that assist with async REST calls that are promise-based) -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.6/angular-resource.js"></script>
-            <!-- Angular JS plugin: ui.router (helpful if you want to create a stateful app) -->
-            <script src="http://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
-            
-            <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
-            <script src="https://rawgit.com/nmccready/angular-simple-logger/master/dist/angular-simple-logger.js"></script>
-            <script src="http://rawgit.com/angular-ui/angular-google-maps/master/dist/angular-google-maps.js"></script>
-            
-            <!-- Bootstrap requires jQuery -->
-            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script
-            <!-- Bootstrap JS: Latest compiled and minified JavaScript -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        </div>
-        <div id="data-app-scripts">
-            <script src="app/open-data-app.js"></script>
-        </div>
-	</body>
-	
-</html>      
+</div>
+
+    
     

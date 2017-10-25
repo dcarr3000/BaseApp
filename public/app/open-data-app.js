@@ -35,7 +35,24 @@
             url:'/map',
             controller: 'MapController',
             controllerAs: 'MapController',
-            templateUrl: 'partial-map.html'
+            templateUrl: 'partial-map.html',
+            resolve: {
+                test1: ['$http', function($http){
+                    var url = 'https://services.arcgis.com/xQcS4egPbZO43gZi/arcgis/rest/services/Lafayette_Public_Art/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json';
+                    
+                    return $http.get(url);
+                }],
+                test2:['OpenDataQueryService', function(OpenDataQueryService){
+                    var queryParams = {
+                       feature: 'Lafayette_Public_Art',
+                       layer: '0',
+                       where: '1=1',
+                       outFields: '*'
+                    };
+                    
+                    return OpenDataQueryService.query(queryParams);
+                }]
+            }
             
         });
         
@@ -102,14 +119,30 @@
         }
     });
     
-    app.controller('MapController', function( $http) {
+    app.controller('MapController', function($http, OpenDataQueryService) {
         
         this.map = {center: {latitude: 30.2247601, longitude: -92.0136968 }, zoom: 16 };
         this.options = {scrollwheel: false};
-        $http.get("https://services.arcgis.com/xQcS4egPbZO43gZi/arcgis/rest/services/Lafayette_Public_Art/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json").then(angular.bind(this ,function (response){
-          
-          this.myData = response.data.features;
-      }));
+        this.myData = OpenDataQueryService.getBindingContainer().Lafayette_Public_Art[0].features;
+        
+        var optionsIconMap = {
+            'Sculpture': {icon: 'blue_MarkerS.png'},
+            'Bench': {icon: 'darkgreen_MarkerB.png'},
+            'Bike rack': {icon: 'orange_MarkerB.png'},
+            'Ceramic': {icon: 'pink_MarkerC.png'},
+            'Interactive Art': {icon: 'purple_MarkerI.png'},
+            'Mural': {icon:'paleblue_MarkerM.png'},
+            'Plant Art': {icon: 'green_MarkerP.png'},
+            'Stained Glass': {icon: 'red_MarkerS.png'},
+            'Street art': {icon: 'yellow_MarkerS.png'},
+            'Statue': {icon: 'brown_MarkerS.png'}
+        };
+        
+        this.prepareMapOptionsBasedOnType = function(item){
+            return optionsIconMap[item.attributes.Type];
+        };
+        
+        
     });
     
     /**
