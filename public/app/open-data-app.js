@@ -123,7 +123,7 @@
         
         this.map = {center: {latitude: 30.2247601, longitude: -92.0136968 }, zoom: 16 };
         this.options = {scrollwheel: false};
-        this.myData = OpenDataQueryService.getBindingContainer().Lafayette_Public_Art[0].features;
+        this.bindingContainer = OpenDataQueryService.getBindingContainer();
         
         var optionsIconMap = {
             'Sculpture': {icon: 'blue_MarkerS.png'},
@@ -142,6 +142,16 @@
             return optionsIconMap[item.attributes.Type];
         };
         
+        this.updateData = function(type){
+            var queryParams = {
+               feature: 'Lafayette_Public_Art',
+               layer: '0',
+               where: ( (type === 'All')? '1=1' : 'Type=\'' + type +'\''),
+               outFields: '*'
+            };
+                    
+            return OpenDataQueryService.query(queryParams);
+        };
         
     });
     

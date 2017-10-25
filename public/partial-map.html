@@ -1,17 +1,17 @@
-<div class="container-fluid">
+<div class="container-fluid map-state">
     <div class="row">
         <div class="col-md-12">
-            <a data-ui-sref="Sculptures" class="btn btn-primary" ui-sref-active="btn-success">Sculptures</a>
-            <a data-ui-sref="Murals" class="btn btn-primary" ui-sref-active="btn-success">Murals</a>
-            <a data-ui-sref="All" class="btn btn-primary" ui-sref-active="btn-success">All Art</a>
+            <a ng-click="MapController.updateData('Sculpture')" class="btn btn-primary">Sculptures</a>
+            <a ng-click="MapController.updateData('Mural')" class="btn btn-primary">Murals</a>
+            <a ng-click="MapController.updateData('All')" class="btn btn-primary">All Art</a>
         </div>
         <div class="col-md-12">
             <div id="map_canvas">
                  <div >
                     <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                        <ui-gmap-marker ng-repeat="point in MapController.myData" coords="{ 'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point)"  idkey="1">
+                        <ui-gmap-marker ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features" coords="{ 'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point)"  idkey="1">
                             <ui-gmap-window>
-                                <div>{{ x.attributes.Venue + ', ' + x.attributes.Street_Add}}</div>
+                                <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
                             </ui-gmap-window>
                         </ui-gmap-marker> 
                     </ui-gmap-google-map>
