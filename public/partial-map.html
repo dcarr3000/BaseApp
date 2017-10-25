@@ -1,22 +1,34 @@
 <div class="container-fluid map-state">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 margin-bottom-1em">
             <a ng-click="MapController.updateData('Sculpture')" class="btn btn-primary">Sculptures</a>
             <a ng-click="MapController.updateData('Mural')" class="btn btn-primary">Murals</a>
             <a ng-click="MapController.updateData('All')" class="btn btn-primary">All Art</a>
+            <a ng-click="MapController.sidebarShowing = !MapController.sidebarShowing;" class="btn btn-primary">Toggle Sidebar</a>
         </div>
-        <div class="col-md-12">
-            <div id="map_canvas">
-                 <div >
-                    <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                        <ui-gmap-marker ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features" coords="{ 'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point)"  idkey="1">
-                            <ui-gmap-window>
-                                <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
-                            </ui-gmap-window>
-                        </ui-gmap-marker> 
-                    </ui-gmap-google-map>
+        <div class="col-md-4 map-sidebar slide">
+            <div ng-include="'partial-point-list.html'"></div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <div>
+                    <div id="map_canvas">
+                        <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
+                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="::MapController.prepareMapOptionsBasedOnType(point, $index)"  idkey="1">
+                                <ui-gmap-window>
+                                    <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
+                                </ui-gmap-window>
+                            </ui-gmap-marker> 
+                        </ui-gmap-google-map>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-12 margin-bottom-1em">
+                <div ng-include="'partial-point-details.html'"></div>
+            </div>
+        </div>
+        <div>
+            
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
     
-    var app = angular.module('app', ['ui.router', 'ngResource', 'uiGmapgoogle-maps']);
+    var app = angular.module('app', ['ui.router', 'ngResource', 'uiGmapgoogle-maps', 'ngAnimate']);
     
 
     
@@ -120,6 +120,7 @@
     });
     
     app.controller('MapController', function($http, OpenDataQueryService) {
+        var viewModel = this;
         
         this.map = {center: {latitude: 30.2247601, longitude: -92.0136968 }, zoom: 16 };
         this.options = {scrollwheel: false};
@@ -138,8 +139,11 @@
             'Statue': {icon: 'brown_MarkerS.png'}
         };
         
-        this.prepareMapOptionsBasedOnType = function(item){
-            return optionsIconMap[item.attributes.Type];
+        this.prepareMapOptionsBasedOnType = function(item, $index){
+            var options = optionsIconMap[item.attributes.Type];
+            options.index = $index;
+            
+            return options;
         };
         
         this.updateData = function(type){
@@ -151,6 +155,15 @@
             };
                     
             return OpenDataQueryService.query(queryParams);
+        };
+        
+        this.events = {
+            click: function(marker, eventName, model) {
+                //console.log('Click marker', marker, eventName, model);
+                viewModel.currentSelectedMarkerIndex = model.options.index;
+                
+                console.log('New Point Selected!', viewModel.bindingContainer.Lafayette_Public_Art[0].features[model.options.index]);
+            }
         };
         
     });
