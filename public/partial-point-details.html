@@ -1,0 +1,9 @@
+<div>
+    <div ng-bind="MapController.bindingContainer.Lafayette_Public_Art[0].features[MapController.currentSelectedMarkerIndex].attributes.Descriptio"></div>
+    <span ng-show="MapController.isAcceptableImageUrl(MapController.bindingContainer.Lafayette_Public_Art[0].features[MapController.currentSelectedMarkerIndex].attributes.Image)">
+        <img src="{{MapController.bindingContainer.Lafayette_Public_Art[0].features[MapController.currentSelectedMarkerIndex].attributes.Image}}" class="img-responsive" width="500" height="500"/>
+    </span>
+    <span ng-show="!MapController.isAcceptableImageUrl(MapController.bindingContainer.Lafayette_Public_Art[0].features[MapController.currentSelectedMarkerIndex].attributes.Image)">
+        Aw shucks...
+    </span>
+</div>

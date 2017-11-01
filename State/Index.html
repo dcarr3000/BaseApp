@@ -4,20 +4,38 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script> <!-- AngularJS -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0/angular-ui-router.min.js"></script> <!--routerUI -->
 		<script src="app.js"></script>	<!--javascript control -->
-		<link rel="stylesheet" href="">	<!--Placeholder for bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">">	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		 <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+		
 	</head>
 	<body ng-app="routerApp">
 		<div id="top">		<!--Covers information that shouldn't change between states -->
 			<img src=" " alt="Lafayette Consolidated Government">	
-			<h1>CREATE Project</h1>
-			<nav class="navbar" role="navigation">		<!--navigation for content -->
-				<ul>
-					<li><a ui-sref="home">Home</a></li>
-					<li><a ui-sref="about">About</a></li>
-					<li><a ui-sref="feedback">Feedback</a></li>
-				</ul>
+			
+			<nav clas="navbar navbar-inverse"> 	<!--navigation for content -->
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Lafayette Public Art</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a ui-sref="#home">Home</a></li>
+							<li><a ui-sref="#about">About</a></li>
+							<li><a ui-sref="#map">Map</a></li>
+							<li><a ui-sref="#contact">Contact</a></li>
+						</ul>
+				
+					</div>
+				</div>
 			</nav>
-		</div>
 		<div id="content">	<!--The content will go here-->
 			
 		</div>

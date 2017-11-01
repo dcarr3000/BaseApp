@@ -1,7 +1,9 @@
 (function(angular){
     'use strict';
     
-    var app = angular.module('app-test', ['ui.router', 'ngResource']);
+    var app = angular.module('app', ['ui.router', 'ngResource', 'uiGmapgoogle-maps', 'ngAnimate']);
+    
+
     
     //module config
     app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
@@ -11,8 +13,7 @@
             url: '/dashboard',
             controller: 'DashboardStateController', //Matches controller name as defined in angular
             controllerAs: 'DashboardStateController', //Gives the controller a specific name in the html template/view
-            templateUrl: 'map.html', //with a node server, you should be able to make use of templateUrl here
-            //templateUrl: '/map.html', //with a node server, you should be able to make use of templateUrl here
+            template: '<p ng-bind="DashboardStateController.bindingContainer | json"></p>', //with a node server, you should be able to make use 
             resolve: {
                 lafayetteArt: ['OpenDataQueryService', function(OpenDataQueryService){
                     var queryParams = {
@@ -25,6 +26,58 @@
                     return OpenDataQueryService.query(queryParams);
                 }]
             }
+            
+            
+        });
+        
+        $stateProvider.state({
+            name:'map',
+            url:'/map',
+            controller: 'MapController',
+            controllerAs: 'MapController',
+            templateUrl: 'partial-map.html',
+            resolve: {
+                test1: ['$http', function($http){
+                    var url = 'https://services.arcgis.com/xQcS4egPbZO43gZi/arcgis/rest/services/Lafayette_Public_Art/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json';
+                    
+                    return $http.get(url);
+                }],
+                test2:['OpenDataQueryService', function(OpenDataQueryService){
+                    var queryParams = {
+                       feature: 'Lafayette_Public_Art',
+                       layer: '0',
+                       where: '1=1',
+                       outFields: '*'
+                    };
+                    
+                    return OpenDataQueryService.query(queryParams);
+                }]
+            }
+            
+        });
+        
+         $stateProvider.state({
+            name:'about',
+            url:'/about',
+            
+            templateUrl: 'partial-about.html'
+            
+        });
+        
+         $stateProvider.state({
+            name:'home',
+            url:'/home',
+            
+            templateUrl: 'partial-home.html'
+            
+        });
+        
+         $stateProvider.state({
+            name:'feedback',
+            url:'/feedback',
+            
+            templateUrl: 'partial-feedback.html'
+            
         });
         
         $stateProvider.state({
@@ -64,6 +117,70 @@
                 arcGISsvcs: 'https://services.arcgis.com/:apiToken/arcgis/rest/services/:feature/FeatureServer/:layer/:action'
             }
         }
+    });
+    
+    app.controller('MapController', function($http, OpenDataQueryService) {
+        var viewModel = this;
+        
+        this.map = {center: {latitude: 30.2247601, longitude: -92.0136968 }, zoom: 16 };
+        this.options = {scrollwheel: false};
+        this.bindingContainer = OpenDataQueryService.getBindingContainer();
+        
+        var optionsIconMap = {
+            'Sculpture': {icon: 'blue_MarkerS.png'},
+            'Bench': {icon: 'darkgreen_MarkerB.png'},
+            'Bike rack': {icon: 'orange_MarkerB.png'},
+            'Ceramic': {icon: 'pink_MarkerC.png'},
+            'Interactive Art': {icon: 'purple_MarkerI.png'},
+            'Mural': {icon:'paleblue_MarkerM.png'},
+            'Plant Art': {icon: 'green_MarkerP.png'},
+            'Stained Glass': {icon: 'red_MarkerS.png'},
+            'Street art': {icon: 'yellow_MarkerS.png'},
+            'Statue': {icon: 'brown_MarkerS.png'}
+        };
+        
+        this.prepareMapOptionsBasedOnType = function(item, $index){
+            var options = optionsIconMap[item.attributes.Type];
+            options.index = $index;
+            
+            return options;
+        };
+        
+        this.updateData = function(type){
+            var queryParams = {
+               feature: 'Lafayette_Public_Art',
+               layer: '0',
+               where: ( (type === 'All')? '1=1' : 'Type=\'' + type +'\''),
+               outFields: '*'
+            };
+                    
+            return OpenDataQueryService.query(queryParams);
+        };
+        
+        this.events = {
+            click: function(marker, eventName, model) {
+                //console.log('Click marker', marker, eventName, model);
+                viewModel.currentSelectedMarkerIndex = model.options.index;
+                
+                console.log('New Point Selected!', viewModel.bindingContainer.Lafayette_Public_Art[0].features[model.options.index]);
+            }
+        };
+        
+        this.isAcceptableImageUrl = function(url){
+            if(url) {
+                var isAcceptable = true;
+                var justUnacceptable = ['instagram'];
+                justUnacceptable.forEach(function(keyword){
+                    isAcceptable = isAcceptable && url.indexOf(keyword) === -1;
+                });
+            } else {
+                isAcceptable = false;
+            }
+            
+            
+            return isAcceptable;
+        };
+        
     });
     
     /**
