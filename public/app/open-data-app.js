@@ -166,6 +166,21 @@
             }
         };
         
+        this.isAcceptableImageUrl = function(url){
+            if(url) {
+                var isAcceptable = true;
+                var justUnacceptable = ['instagram'];
+                justUnacceptable.forEach(function(keyword){
+                    isAcceptable = isAcceptable && url.indexOf(keyword) === -1;
+                });
+            } else {
+                isAcceptable = false;
+            }
+            
+            
+            return isAcceptable;
+        };
+        
     });
     
     /**

@@ -21,7 +21,7 @@
                 <div>
                     <div id="map_canvas">
                         <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="::MapController.prepareMapOptionsBasedOnType(point, $index)"  idkey="1">
+                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
                                 <ui-gmap-window>
                                     <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
                                 </ui-gmap-window>
