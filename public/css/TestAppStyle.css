@@ -1,12 +1,37 @@
 /*Test App Style Sheet*/
 
+
+body {
+	background-color: #000080 !important;
+}
+
+
+span {
+		font: 400 100px/0.8 'Great Vibes', Helvetica, sans-serif;
+		color: #fff;
+		text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+		padding: 10px;
+		border: 10px;
+		margin: 10px;
+}
+
+.img-thumbnail {
+		float: right;
+}
+
 #map_canvas {
     height: 60%;
     width: 100%;
     /* margin: 50px; */
 }
 
-/* #map_canvas {
+
+.middle-column {
+	text-align: center;
+	background-color: #c9c1b8 ;
+}
+
+/* #map_canvas {#deb887
 			position: relative;
             } */
 
@@ -22,6 +47,13 @@
     margin-bottom: 1em;
 }
 
-.map-sidebar {
-    /* background-color: blue; */
+.text-center {
+	text-align: center;
 }
+
+.btn-color {
+			color: #fff !important;
+			background-color: #FF6600 !important;
+			border-color: #FF6600 !important;
+}
+
