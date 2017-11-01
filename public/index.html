@@ -1,27 +1,30 @@
 <html>
     <head>
         <meta charset="utf-8">
-		<title> Test App</title>
+		<title>Test App</title>
 		<meta name="description" content="">
 		<meta name="author" content="bmnorwoo">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="css\TestAppStyle.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+		<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 
     </head>
-    <body class="body-override">
+    <body>
         <div class="container-fluid" data-ng-app="app">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12 margin-bottom-1em">
                     <h1>
-                        <span>Lafayette Public Art</span>
-                        <a data-ui-sref="home" class="btn btn-primary"           ui-sref-active="btn-success">Home</a>
-                        <a data-ui-sref="about" class="btn btn-primary" ui-sref-active="btn-success">About</a>
-                        <a data-ui-sref="map" class="btn btn-primary" ui-sref-active="btn-success">Map</a>
-                        <a data-ui-sref="feedback" class="btn btn-primary" ui-sref-active="btn-success">Feedback</a>
+						<span>Lafayette Public Art</span>
+                        <a data-ui-sref="home" class="btn btn-primary btn-color" ui-sref-active="btn-success">Home</a>
+                        <a data-ui-sref="about" class="btn btn-primary btn-color" ui-sref-active="btn-success">About</a>
+                        <a data-ui-sref="map" class="btn btn-primary btn-color" ui-sref-active="btn-success">Map</a>
+                        <a data-ui-sref="feedback" class="btn btn-primary btn-color" ui-sref-active="btn-success">Feedback</a>
+						<img src="artsLOGO.png" class="img-thumbnail" alt="CREATE Arts Logo" width="75" height="50"> 
                     </h1>
+				
+					
                 </div>
                 <div class="col-xs-12"><div data-ui-view></div></div>
                 
