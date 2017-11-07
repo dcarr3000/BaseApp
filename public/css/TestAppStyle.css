@@ -25,6 +25,9 @@ span {
     /* margin: 50px; */
 }
 
+.box-shadow {
+    box-shadow: 3px 3px 3px #888888;
+}
 
 .middle-column {
 	text-align: center;
