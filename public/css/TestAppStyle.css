@@ -1,18 +1,31 @@
 /*Test App Style Sheet*/
 
-
 body {
-	background-color: #000080 !important;
+		background-image: url(LOVELaf.jpg);
+		margin: 0px;
+		padding: 0px;
+		position: relative;
+}
+
+.banner{
+	background-color:#000000 !important;
+	box-shadow: 4px 4px 4px 4px #000000;
+}
+
+.overall{
+	 background-color: #37474F;
+	 width: 1000px;
+	 height: 950px;
+	 padding-top: 10px;
+	 margin-right: auto;
+	 margin-left: auto;
 }
 
 
 span {
-		font: 400 100px/0.8 'Great Vibes', Helvetica, sans-serif;
-		color: #fff;
-		text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
-		padding: 10px;
-		border: 10px;
-		margin: 10px;
+		font: 400 50px/0.8 'Great Vibes', Helvetica, sans-serif;
+		color: #fff; 
+		padding-right: 0.5em;
 }
 
 .img-thumbnail {
@@ -22,13 +35,19 @@ span {
 #map_canvas {
     height: 60%;
     width: 100%;
-    /* margin: 50px; */
 }
+
+/*
+div.map-card {
+    background-color:ffffff;
+}
+*/
 
 .box-shadow {
-    box-shadow: 3px 3px 3px #888888;
+    box-shadow: 3px 3px 3px #263238;
 }
 
+/*
 .middle-column {
 	text-align: center;
 	background-color: #c9c1b8 ;
@@ -38,13 +57,15 @@ span {
 			position: relative;
             } */
 
+
 .angular-google-map-container {
 								position: absolute;
 								top: 0;
 								bottom: 0;
 								right: 0;
 								left: 0;
-							}
+}
+
                             
 .margin-bottom-1em {
     margin-bottom: 1em;
@@ -56,7 +77,15 @@ span {
 
 .btn-color {
 			color: #fff !important;
-			background-color: #FF6600 !important;
-			border-color: #FF6600 !important;
+			background-color: #B71C1C !important;
+			border-color: #B71C1C !important;
 }
+
+.btn-link {
+		color: #fff !important;
+		font-size: 12pt !important;
+		
+}
+
+
 
