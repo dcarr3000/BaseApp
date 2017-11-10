@@ -1,45 +1,43 @@
-<div class="container-fluid">
-    <div class="overall">
-        <div class="col-md-12 margin-bottom-1em">
-            <a ng-click="MapController.updateData('Sculpture')" class="btn btn-primary btn-color box-shadow">Sculptures</a>
-            <a ng-click="MapController.updateData('Mural')" class="btn btn-primary btn-color box-shadow">Murals</a>
-            <a ng-click="MapController.updateData('Bike rack')" class="btn btn-primary btn-color box-shadow">Bike Racks</a>
-            <a ng-click="MapController.updateData('Street Art')" class="btn btn-primary btn-color box-shadow">Street Art</a>
-            <a ng-click="MapController.updateData('Bench')" class="btn btn-primary btn-color box-shadow">Bench</a>
-            <a ng-click="MapController.updateData('Ceramic')" class="btn btn-primary btn-color box-shadow">Ceramic</a>
-            <a ng-click="MapController.updateData('Interactive Art')" class="btn btn-primary btn-color box-shadow">Interactive Art</a>
-            <a ng-click="MapController.updateData('Plant Art')" class="btn btn-primary btn-color box-shadow">Plant Art</a>
-            <a ng-click="MapController.updateData('Statue')" class="btn btn-primary btn-color box-shadow">Statue</a>
-            <a ng-click="MapController.updateData('All')" class="btn btn-primary btn-color box-shadow">All Art</a>
-            <a ng-click="MapController.sidebarShowing = !MapController.sidebarShowing;" class="btn btn-primary btn-color box-shadow">Toggle Sidebar</a>
-        </div>
-        <div class="col-md-4 map-sidebar slide">
-            <div ng-include="'partial-point-list.html'"></div>
-        </div> 
-		
-	
-        <div class="col-md-8">
-            <div class="col-md-10">
-                <div>
-                    <div id="map_canvas">
-                        <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
-                                <ui-gmap-window>
-                                    <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
-                                </ui-gmap-window>
-                            </ui-gmap-marker> 
-                        </ui-gmap-google-map>
-                    </div>
+<div class="overall col-md-offset-2 col-md-8">
+    <div class="col-md-offset-1 col-md-10 margin-bottom-1em">
+        <a ng-click="MapController.updateData('Sculpture')" class="btn btn-primary btn-color box-shadow">Sculptures</a>
+        <a ng-click="MapController.updateData('Mural')" class="btn btn-primary btn-color box-shadow">Murals</a>
+        <a ng-click="MapController.updateData('Bike rack')" class="btn btn-primary btn-color box-shadow">Bike Racks</a>
+        <a ng-click="MapController.updateData('Street Art')" class="btn btn-primary btn-color box-shadow">Street Art</a>
+        <a ng-click="MapController.updateData('Bench')" class="btn btn-primary btn-color box-shadow">Bench</a>
+        <a ng-click="MapController.updateData('Ceramic')" class="btn btn-primary btn-color box-shadow">Ceramic</a>
+        <a ng-click="MapController.updateData('Interactive Art')" class="btn btn-primary btn-color box-shadow">Interactive Art</a>
+        <a ng-click="MapController.updateData('Plant Art')" class="btn btn-primary btn-color box-shadow">Plant Art</a>
+        <a ng-click="MapController.updateData('Statue')" class="btn btn-primary btn-color box-shadow">Statue</a>
+        <a ng-click="MapController.updateData('All')" class="btn btn-primary btn-color box-shadow">All Art</a>
+        <a ng-click="MapController.sidebarShowing = !MapController.sidebarShowing;" class="btn btn-primary btn-color box-shadow">Toggle Sidebar</a>
+    </div>
+    <div class="col-md-4 map-sidebar slide">
+        <div ng-include="'partial-point-list.html'"></div>
+    </div> 
+    
+
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <div>
+                <div id="map_canvas">
+                    <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
+                        <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
+                            <ui-gmap-window>
+                                <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
+                            </ui-gmap-window>
+                        </ui-gmap-marker> 
+                    </ui-gmap-google-map>
                 </div>
             </div>
-            <div class="col-md-12 margin-bottom-1em">
-                <div ng-include="'partial-point-details.html'"></div>
-            </div> 
         </div>
-		
-        <div>
-            
-        </div>
+        <div class="col-md-12 margin-bottom-1em">
+            <div ng-include="'partial-point-details.html'"></div>
+        </div> 
+    </div>
+    
+    <div>
+        
     </div>
 </div>
 

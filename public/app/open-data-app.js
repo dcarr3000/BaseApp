@@ -162,7 +162,7 @@
                 //console.log('Click marker', marker, eventName, model);
                 viewModel.currentSelectedMarkerIndex = model.options.index;
                 
-                console.log('New Point Selected!', viewModel.bindingContainer.Lafayette_Public_Art[0].features[model.options.index]);
+                console.log('New Point Selected!', viewModel.bindingContainer.Lafayette_Public_Art[0].features[viewModel.currentSelectedMarkerIndex]);
             }
         };
         
