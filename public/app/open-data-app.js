@@ -57,10 +57,28 @@
         });
         
          $stateProvider.state({
-            name:'about',
-            url:'/about',
-            
-            templateUrl: 'partial-about.html'
+            name:'park',
+            url:'/park',
+			controller: 'MapController',
+            controllerAs: 'MapController',
+            templateUrl: 'partial-park.html',
+            resolve: {
+                test1: ['$http', function($http){
+                    var url = 'https://services.arcgis.com/xQcS4egPbZO43gZi/arcgis/rest/services/Parks_and_Recreation/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json';
+                    
+                    return $http.get(url);
+                }],
+                test2:['OpenDataQueryService', function(OpenDataQueryService){
+                    var queryParams = {
+                       feature: 'Parks_and_Recreation',
+                       layer: '0',
+                       where: '1=1',
+                       outFields: '*'
+                    };
+                    
+                    return OpenDataQueryService.query(queryParams);
+                }]
+            }
             
         });
         
@@ -107,7 +125,7 @@
             }
         });
         
-        $urlRouterProvider.otherwise('dashboard');
+        $urlRouterProvider.otherwise('home');
     }]);
     
     app.factory('OpenDataConstants', function(){
@@ -136,7 +154,8 @@
             'Plant Art': {icon: 'green_MarkerP.png'},
             'Stained Glass': {icon: 'red_MarkerS.png'},
             'Street art': {icon: 'yellow_MarkerS.png'},
-            'Statue': {icon: 'brown_MarkerS.png'}
+            'Statue': {icon: 'brown_MarkerS.png'},
+			'Park': {icon:'darkgreen_MarkerB'}
         };
         
         this.prepareMapOptionsBasedOnType = function(item, $index){
