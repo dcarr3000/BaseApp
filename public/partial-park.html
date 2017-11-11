@@ -1,8 +1,5 @@
 <div class="container-fluid map-state">
     <div class="row">
-        <div class="col-md-12 margin-bottom-1em">
-            <a ng-click="MapController.updateData('Park')" class="btn btn-primary btn-color">Park</a>
-		</div>
         <div class="col-md-4 map-sidebar slide">
             <div ng-include="'partial-point-list.html'"></div>
         </div>
@@ -11,7 +8,7 @@
                 <div>
                     <div id="map_canvas">
                         <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Lafayette_Public_Art[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
+                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Parks_and_Recreation[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
                                 <ui-gmap-window>
                                     <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
                                 </ui-gmap-window>
