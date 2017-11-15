@@ -7,8 +7,8 @@
             <div class="col-md-12">
                 <div>
                     <div id="map_canvas">
-                        <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                            <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer.Parks_and_Recreation[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
+                        <ui-gmap-google-map center="MapControllerPark.map.center" zoom="MapControllerPark.map.zoom" options="MapControllerPark.map.options">
+                            <ui-gmap-marker events="MapControllerPark.events" ng-repeat="point in MapControllerPark.bindingContainer.Parks_and_Recreation[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
                                 <ui-gmap-window>
                                     <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
                                 </ui-gmap-window>

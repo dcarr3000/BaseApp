@@ -59,8 +59,8 @@
          $stateProvider.state({
             name:'park',
             url:'/park',
-			controller: 'MapController',
-            controllerAs: 'MapController',
+			controller: 'MapControllerPark',
+            controllerAs: 'MapControllerPark',
             templateUrl: 'partial-park.html',
             resolve: {
                 test1: ['$http', function($http){
@@ -184,6 +184,71 @@
                 console.log('New Point Selected!', viewModel.bindingContainer.Lafayette_Public_Art[0].features[model.options.index]);
             }
         };
+        
+        this.isAcceptableImageUrl = function(url){
+            if(url) {
+                var isAcceptable = true;
+                var justUnacceptable = ['instagram'];
+                justUnacceptable.forEach(function(keyword){
+                    isAcceptable = isAcceptable && url.indexOf(keyword) === -1;
+                });
+            } else {
+                isAcceptable = false;
+            }
+            
+            
+            return isAcceptable;
+        };
+        
+    });
+    
+     app.controller('MapControllerPark', function($http, OpenDataQueryService) {
+        var viewModel = this;
+        
+        this.map = {center: {latitude: 30.2189, longitude: -91.9965 }, zoom: 12 };
+        this.options = {scrollwheel: false};
+        this.bindingContainer = OpenDataQueryService.getBindingContainer();
+        
+       /* var optionsIconMap = {
+            'Sculpture': {icon: 'blue_MarkerS.png'},
+            'Bench': {icon: 'darkgreen_MarkerB.png'},
+            'Bike rack': {icon: 'orange_MarkerB.png'},
+            'Ceramic': {icon: 'pink_MarkerC.png'},
+            'Interactive Art': {icon: 'purple_MarkerI.png'},
+            'Mural': {icon:'paleblue_MarkerM.png'},
+            'Plant Art': {icon: 'green_MarkerP.png'},
+            'Stained Glass': {icon: 'red_MarkerS.png'},
+            'Street art': {icon: 'yellow_MarkerS.png'},
+            'Statue': {icon: 'brown_MarkerS.png'},
+			'Park': {icon:'darkgreen_MarkerB'}
+        };
+        
+        this.prepareMapOptionsBasedOnType = function(item, $index){
+            var options = optionsIconMap[item.attributes.Type];
+            options.index = $index;
+            
+            return options;
+        }; */
+        
+        this.updateData = function(type){
+            var queryParams = {
+               feature: 'Parks_and_Recreation',
+               layer: '0',
+               where: ( (type === 'All')? '1=1' : 'Type=\'' + type +'\''),
+               outFields: '*'
+            };
+                    
+            return OpenDataQueryService.query(queryParams);
+        };
+        
+        /* this.events = {
+            click: function(marker, eventName, model) {
+                //console.log('Click marker', marker, eventName, model);
+                viewModel.currentSelectedMarkerIndex = model.options.index;
+                
+                console.log('New Point Selected!', viewModel.bindingContainer.Lafayette_Public_Art[0].features[model.options.index]);
+            }
+        };*/
         
         this.isAcceptableImageUrl = function(url){
             if(url) {
