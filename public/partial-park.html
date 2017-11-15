@@ -1,31 +1,30 @@
-<div class="container-fluid map-state">
-    <div class="row">
-        <div class="col-md-4 map-sidebar slide">
-            <div ng-include="'partial-point-list.html'"></div>
-        </div>
-        <div class="col-md-8">
-            <div class="col-md-12">
-                <div>
-                    <div id="map_canvas">
-                        <ui-gmap-google-map center="MapControllerPark.map.center" zoom="MapControllerPark.map.zoom" options="MapControllerPark.map.options">
-                            <ui-gmap-marker events="MapControllerPark.events" ng-repeat="point in MapControllerPark.bindingContainer.Parks_and_Recreation[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
-                                <ui-gmap-window>
-                                    <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
-                                </ui-gmap-window>
-                            </ui-gmap-marker> 
-                        </ui-gmap-google-map>
-                    </div>
+<div class="overall col-md-offset-2 col-md-8">
+    <div class="col-md-offset-1 col-md-10 margin-bottom-1em">
+		
+			
+				
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div>
+                <div id="map_canvas">
+                    <ui-gmap-google-map center="MapControllerPark.map.center" zoom="MapControllerPark.map.zoom" options="MapControllerPark.map.options">
+                        <ui-gmap-marker events="MapControllerPark.events" ng-repeat="point in MapControllerPark.bindingContainer.Parks_and_Recreation[0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapControllerPark.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
+                            <ui-gmap-window>
+                                <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
+                            </ui-gmap-window>
+                        </ui-gmap-marker> 
+                    </ui-gmap-google-map>
                 </div>
             </div>
-            <div class="col-md-12 margin-bottom-1em">
-                <div ng-include="'partial-point-details.html'"></div>
-            </div>
         </div>
-        <div>
-            
-        </div>
+        <div class="col-md-12 margin-bottom-1em">
+            <div ng-include="'partial-point-details.html'"></div>
+        </div> 
+    </div>
+    
+    <div>
+        
     </div>
 </div>
-
-    
-    
