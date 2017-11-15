@@ -49,7 +49,7 @@ body {
 }
 
 #map_canvas {
-    height: 60%;
+    height: 75%;
     width: 100%;
 }
 
@@ -80,6 +80,7 @@ div.map-card {
 								bottom: 0;
 								right: 0;
 								left: 0;
+								box-shadow:3px 3px 3px #263238;
 }
 
                             
