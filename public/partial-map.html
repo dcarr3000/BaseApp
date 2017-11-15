@@ -1,23 +1,26 @@
 <div class="overall col-md-offset-2 col-md-8">
     <div class="col-md-offset-1 col-md-10 margin-bottom-1em">
-        <a ng-click="MapController.updateData('Sculpture')" class="btn btn-primary btn-color box-shadow">Sculptures</a>
-        <a ng-click="MapController.updateData('Mural')" class="btn btn-primary btn-color box-shadow">Murals</a>
-        <a ng-click="MapController.updateData('Bike rack')" class="btn btn-primary btn-color box-shadow">Bike Racks</a>
-        <a ng-click="MapController.updateData('Street Art')" class="btn btn-primary btn-color box-shadow">Street Art</a>
-        <a ng-click="MapController.updateData('Bench')" class="btn btn-primary btn-color box-shadow">Bench</a>
-        <a ng-click="MapController.updateData('Ceramic')" class="btn btn-primary btn-color box-shadow">Ceramic</a>
-        <a ng-click="MapController.updateData('Interactive Art')" class="btn btn-primary btn-color box-shadow">Interactive Art</a>
-        <a ng-click="MapController.updateData('Plant Art')" class="btn btn-primary btn-color box-shadow">Plant Art</a>
-        <a ng-click="MapController.updateData('Statue')" class="btn btn-primary btn-color box-shadow">Statue</a>
-        <a ng-click="MapController.updateData('All')" class="btn btn-primary btn-color box-shadow">All Art</a>
-        <a ng-click="MapController.sidebarShowing = !MapController.sidebarShowing;" class="btn btn-primary btn-color box-shadow">Toggle Sidebar</a>
+		<div class="dropdown">
+			<button class="btn btn-primary btn-color box-shadow" type="button" data-toggle="dropdown">Art Categories
+			<span class="caret"></span></button>
+			<ul class="dropdown-menu">
+				<li><a ng-click="MapController.updateData('Sculpture')" class="btn btn-primary btn-color box-shadow">Sculptures</a></li>
+				<li><a ng-click="MapController.updateData('Mural')" class="btn btn-primary btn-color box-shadow">Murals</a></li>
+				<li><a ng-click="MapController.updateData('Bike rack')" class="btn btn-primary btn-color box-shadow">Bike Racks</a></li>
+				<li><a ng-click="MapController.updateData('Street Art')" class="btn btn-primary btn-color box-shadow">Street Art</a></li>
+				<li><a ng-click="MapController.updateData('Bench')" class="btn btn-primary btn-color box-shadow">Bench</a></li>
+				<li><a ng-click="MapController.updateData('Ceramic')" class="btn btn-primary btn-color box-shadow">Ceramic</a></li>
+				<li><a ng-click="MapController.updateData('Interactive Art')" class="btn btn-primary btn-color box-shadow">Interactive Art</a></li>
+				<li><a ng-click="MapController.updateData('Plant Art')" class="btn btn-primary btn-color box-shadow">Plant Art</a></li>
+				<li><a ng-click="MapController.updateData('Statue')" class="btn btn-primary btn-color box-shadow">Statue</a></li>
+				<li><a ng-click="MapController.updateData('All')" class="btn btn-primary btn-color box-shadow">All Art</a></li>
+				<li><a ng-click="MapController.sidebarShowing = !MapController.sidebarShowing;" class="btn btn-primary btn-color box-shadow">Toggle Sidebar</a></li>
+			</ul>
+		</div>
     </div>
-    <div class="col-md-4 map-sidebar slide">
-        <div ng-include="'partial-point-list.html'"></div>
-    </div> 
     
 
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="col-md-12">
             <div>
                 <div id="map_canvas">
