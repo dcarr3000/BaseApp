@@ -44,12 +44,12 @@ body {
 		padding-right: 0.5em;
 }
 
-.img-thumbnail {
+.feedback {
 		float: right;
 }
 
 #map_canvas {
-    height: 75%;
+    height: 60%;
     width: 100%;
 }
 
@@ -80,7 +80,7 @@ div.map-card {
 								bottom: 0;
 								right: 0;
 								left: 0;
-								box-shadow:3px 3px 3px #263238;
+								box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
                             
@@ -107,6 +107,15 @@ div.map-card {
 		font-size: 12pt !important;
 		
 }
+
+.dropdown-menu{
+	background-color: #B71C1C !important;
+}
+
+.btn-primary {
+	float: left;
+}
+
 
 
 
