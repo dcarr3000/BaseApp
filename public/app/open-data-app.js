@@ -37,12 +37,8 @@
             controllerAs: 'MapController',
             templateUrl: 'partial-map.html',
             resolve: {
-                test1: ['$http', function($http){
-                    var url = 'https://services.arcgis.com/xQcS4egPbZO43gZi/arcgis/rest/services/Lafayette_Public_Art/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json';
-                    
-                    return $http.get(url);
-                }],
-                test2:['OpenDataQueryService', function(OpenDataQueryService){
+                
+                Lafayette_Public_Art:['OpenDataQueryService', function(OpenDataQueryService){
                     var queryParams = {
                        feature: 'Lafayette_Public_Art',
                        layer: '0',
@@ -51,7 +47,18 @@
                     };
                     
                     return OpenDataQueryService.query(queryParams);
+                }],
+				Parks_and_Recreation:['OpenDataQueryService', function(OpenDataQueryService){
+                    var queryParams = {
+                       feature: 'Parks_and_Recreation',
+                       layer: '0',
+                       where: '1=1',
+                       outFields: '*'
+                    };
+                    
+                    return OpenDataQueryService.query(queryParams);
                 }]
+				
             }
             
         });
@@ -144,6 +151,8 @@
         this.options = {scrollwheel: false};
         this.bindingContainer = OpenDataQueryService.getBindingContainer();
         
+		this.currentFeatureSet = 'Lafayette_Public_Art';
+		
         var optionsIconMap = {
             'Sculpture': {icon: 'blue_MarkerS.png'},
             'Bench': {icon: 'darkgreen_MarkerB.png'},
@@ -155,7 +164,9 @@
             'Stained Glass': {icon: 'red_MarkerS.png'},
             'Street art': {icon: 'yellow_MarkerS.png'},
             'Statue': {icon: 'brown_MarkerS.png'},
-			'Park': {icon:'darkgreen_MarkerB'}
+			'Park': {icon:'darkgreen_MarkerB.png'},
+			'Recreation': {icon:'darkgreen_MarkerB.png'},
+			'Activity': {icon:'darkgreen_MarkerB.png'}
         };
         
         this.prepareMapOptionsBasedOnType = function(item, $index){
@@ -165,9 +176,12 @@
             return options;
         };
         
-        this.updateData = function(type){
+        this.updateData = function(type, feature){
+			feature = feature ? feature : 'Lafayette_Public_Art';
+			this.map.zoom--;
+			this.currentFeatureSet = feature; 
             var queryParams = {
-               feature: 'Lafayette_Public_Art',
+               feature: feature,
                layer: '0',
                where: ( (type === 'All')? '1=1' : 'Type=\'' + type +'\''),
                outFields: '*'
