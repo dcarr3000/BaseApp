@@ -11,7 +11,6 @@ body {
 
 .background-img {
     position: fixed;
-    
     background-repeat: repeat;
     background-image: url('LOVELaf.jpg');
     width:100%;
@@ -38,6 +37,22 @@ body {
      padding: 1em;
 }
 
+.overallDetails{
+	 background-color: #37474F;
+	 padding-top: 10px;
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+     border-radius: 2%;
+     padding: 1em;
+	 margin-left: 2em;
+}
+
+.buttonOverall{
+	background-color: #37474F;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	border-radius: 2%;
+	padding: 1em;
+	margin-bottom: 2em;
+}
 
 .cursive-text {
 		font: 400 40px 'Great Vibes', Helvetica, sans-serif;
@@ -54,26 +69,10 @@ body {
     width: 100%;
 }
 
-/*
-div.map-card {
-    background-color:ffffff;
-}
-*/
 
 .box-shadow {
     box-shadow: 3px 3px 3px #263238;
 }
-
-/*
-.middle-column {
-	text-align: center;
-	background-color: #c9c1b8 ;
-}
-
-/* #map_canvas {#deb887
-			position: relative;
-            } */
-
 
 .angular-google-map-container {
 								position: absolute;
@@ -113,9 +112,11 @@ div.map-card {
 	background-color: #B71C1C !important;
 }
 
+
 .btn-primary {
-	float: left;
+	margin-left: 19em;
 }
+
 
 .parksandrec{
 	float: right;
@@ -126,4 +127,3 @@ div.map-card {
        font: 400 20px 'Great Vibes', Helvetica, sans-serif;
     }
 }
-
