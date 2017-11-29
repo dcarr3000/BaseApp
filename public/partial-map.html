@@ -1,10 +1,9 @@
-<div class="overall col-md-offset-2 col-md-8 col-xs-12">
-    <div class="col-md-offset-1 col-md-10 margin-bottom-1em">
-		<div class="dropdown col-md-3">
-			<button class="btn btn-color box-shadow" type="button" data-toggle="dropdown">Art Categories
-			<span class="caret"></span></button>
+<div class="buttonOverall col-md-4 col-md-offset-4">	
+	<div class="dropdown col-md-1">
+		<button class="btn btn-color box-shadow" type="button" data-toggle="dropdown">Art Categories
+		<span class="caret"></span></button>
 			<ul class="dropdown-menu">
-				<li><a ng-click="MapController.updateData('Sculpture')" class="btn-group-vertical btn-color">Sculptures</a></li>
+				<li><a ng-click="MapController.updateData('Sculpture')" class="btn-group-vertical btn-color">Sculptures</a></li>					
 				<li><a ng-click="MapController.updateData('Mural')" class="btn-group-vertical btn-color">Murals</a></li>
 				<li><a ng-click="MapController.updateData('Bike rack')" class="btn-group-vertical btn-color">Bike Racks</a></li>
 				<li><a ng-click="MapController.updateData('Street Art')" class="btn-group-vertical btn-color">Street Art</a></li>
@@ -15,28 +14,34 @@
 				<li><a ng-click="MapController.updateData('Statue')" class="btn-group-vertical btn-color">Statue</a></li>
 				<li><a ng-click="MapController.updateData('All')" class="btn-group-vertical btn-color">All Art</a></li>
 			</ul>
-		</div>
-		<div class="col-md-3">
+	</div>
+		<div class="col-md-1">
 			<a ng-click="MapController.updateData('All','Parks_and_Recreation')" class="btn btn-primary btn-color box-shadow">Parks & Recreation</a>
+		</div>
+</div>
+
+<div class="col-md-12 col-md-offset-2">
+	<div class="overall col-md-4 col-xs-12">
+		<div class="col-xs-12">
+			<div>
+				<div id="map_canvas">
+					<ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
+						<ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer[MapController.currentFeatureSet][0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
+							<ui-gmap-window>
+								<div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
+							</ui-gmap-window>
+						</ui-gmap-marker> 
+					</ui-gmap-google-map>
+				</div>
+			</div>
 		</div>
 	</div>
 
-    
-        <div class="col-xs-12">
-            <div>
-                <div id="map_canvas">
-                    <ui-gmap-google-map center="MapController.map.center" zoom="MapController.map.zoom" options="MapController.map.options">
-                        <ui-gmap-marker events="MapController.events" ng-repeat="point in MapController.bindingContainer[MapController.currentFeatureSet][0].features track by point.attributes.Venue" coords="{'latitude': point.attributes.Latitude, 'longitude': point.attributes.Longitude}" options="MapController.prepareMapOptionsBasedOnType(point, $index)" idkey="$index">
-                            <ui-gmap-window>
-                                <div>{{ point.attributes.Venue + ', ' + point.attributes.Street_Add}}</div>
-                            </ui-gmap-window>
-                        </ui-gmap-marker> 
-                    </ui-gmap-google-map>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 margin-bottom-1em">
-            <div ng-include="'partial-point-details.html'"></div>
-        </div> 
+	<div class="overallDetails col-md-4 col-xs-12">
+			<div class="col-md-12">
+				<div ng-include="'partial-point-details.html'"></div>
+			</div>
+	</div>
+</div>	
 
-</div>
+	
