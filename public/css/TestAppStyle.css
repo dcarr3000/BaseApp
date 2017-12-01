@@ -82,6 +82,30 @@ body {
      padding: 1em;
 }
 
+.overallDetails{
+	 background-color: #37474F;
+	 padding-top: 10px;
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+     border-radius: 2%;
+     padding: 1em;
+	 margin-left: 2em;
+}
+
+.buttonOverall{
+	background-color: #37474F;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	border-radius: 10%;
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+.details_text{
+	color: white;
+	font-size; 12pt;
+	
+}
+
+
 
 .cursive-text {
 		font: 400 40px 'Great Vibes', Helvetica, sans-serif;
@@ -114,8 +138,8 @@ div.map-card {
 	background-color: #c9c1b8 ;
 }
 
- #map_canvas {#deb887
-			position: relative;
+ #map_canvas {
+		border-radius: 2%;
             } 
 
 
@@ -160,8 +184,12 @@ div.map-card {
 }
 
 
-.btn-primary {
-	float: left;
+.dropdown {
+	margin-left: 2em;
+}
+
+.btn-primary{
+	margin-left: 11em;
 }
 [ng-click] {
 	cursor: pointer;
