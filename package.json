@@ -10,4 +10,7 @@
     "scripts": {
         "start": "node server/server.js"
     }
+	"engines": {
+	"node": "6.11.3"
+	}
 }
