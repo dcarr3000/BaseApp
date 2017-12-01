@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 var path = require('path');
-
+var port = process.env.PORT || 8080;
 var express = require('express');
 var app = express();
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
-app.listen(process.env.PORT || 8080);
+app.listen(port);
 console.log("Server is Running Press Ctrl-C to Exit");
 
