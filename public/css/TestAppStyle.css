@@ -8,11 +8,56 @@ body {
         
 }
 
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+/* Centered text */
+.centered {
+	font-size: 20px;
+	font-family: "Times New Roman", Times, serif;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 .background-img {
     position: fixed;
+    
     background-repeat: repeat;
-    background-image: url('LOVELaf.jpg');
+    background-image: url('ylafayettesign.jpeg');
     width:100%;
     height:100%;
     opacity: 0.5;
@@ -37,22 +82,6 @@ body {
      padding: 1em;
 }
 
-.overallDetails{
-	 background-color: #37474F;
-	 padding-top: 10px;
-     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-     border-radius: 2%;
-     padding: 1em;
-	 margin-left: 2em;
-}
-
-.buttonOverall{
-	background-color: #37474F;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	border-radius: 2%;
-	padding: 1em;
-	margin-bottom: 2em;
-}
 
 .cursive-text {
 		font: 400 40px 'Great Vibes', Helvetica, sans-serif;
@@ -70,9 +99,25 @@ body {
 }
 
 
+div.map-card {
+    background-color:ffffff;
+}
+
+
 .box-shadow {
     box-shadow: 3px 3px 3px #263238;
 }
+
+
+.middle-column {
+	text-align: center;
+	background-color: #c9c1b8 ;
+}
+
+ #map_canvas {#deb887
+			position: relative;
+            } 
+
 
 .angular-google-map-container {
 								position: absolute;
@@ -110,13 +155,23 @@ body {
 
 .dropdown-menu{
 	background-color: #B71C1C !important;
+	opacity: 0.7 !important;
+	
 }
 
 
 .btn-primary {
-	margin-left: 19em;
+	float: left;
+}
+[ng-click] {
+	cursor: pointer;
+	
 }
 
+ul li a:hover {
+  background-color: RED !important;
+  opacity: 1.0 !important:
+}
 
 .parksandrec{
 	float: right;
@@ -127,3 +182,4 @@ body {
        font: 400 20px 'Great Vibes', Helvetica, sans-serif;
     }
 }
+
