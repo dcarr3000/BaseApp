@@ -123,7 +123,7 @@
     app.controller('MapController', function($http, OpenDataQueryService) {
         var viewModel = this;
         
-        this.map = {center: {latitude: 30.2247601, longitude: -92.0136968 }, zoom: 16 };
+        this.map = {center: {latitude: 30.2247601, longitude: -92.0176968 }, zoom: 16 }
         this.options = {scrollwheel: false};
         this.bindingContainer = OpenDataQueryService.getBindingContainer();
         
