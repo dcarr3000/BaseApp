@@ -112,6 +112,10 @@ body {
 .feedback {
 		float: right;
 }
+.feedback_emails {
+		margin:auto;
+		text-align:middle;
+}
 
 #map_canvas {
     height: 60%;
