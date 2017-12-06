@@ -140,9 +140,9 @@
             'Stained Glass': {icon: 'red_MarkerS.png'},
             'Street art': {icon: 'yellow_MarkerS.png'},
             'Statue': {icon: 'brown_MarkerS.png'},
-			'Park': {icon:'marker-24.png'},
-			'Recreation': {icon:'marker-24.png'},
-			'Activity': {icon:'marker-24.png'}
+			'Park': {icon:'darkgreen_MarkerP.png'},
+			'Recreation': {icon:'darkgreen_MarkerP.png'},
+			'Activity': {icon:'darkgreen_MarkerP.png'}
         };
         
         this.prepareMapOptionsBasedOnType = function(item, $index){
