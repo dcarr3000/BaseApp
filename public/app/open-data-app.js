@@ -151,6 +151,21 @@
             
             return options;
         };
+		
+		this.updateParkData = function(description, feature){
+			feature = feature ? feature : 'Parks_and_Recreation';
+			this.map.zoom = 12;
+            this.currentFeatureSet = feature; 
+			if (this.currentFeatureSet === 'Parks_and_Recreation') { this.map.zoom = 10}
+            var queryParams = {
+               feature: feature,
+               layer: '0',
+               where: 'Description LIKE\'' + description +'\'' ,
+               outFields: '*'
+            };
+             console.log(description);       
+            return OpenDataQueryService.query(queryParams);
+        };
         
         this.updateData = function(type, feature){
 			feature = feature ? feature : 'Lafayette_Public_Art';

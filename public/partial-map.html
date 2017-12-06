@@ -16,8 +16,19 @@
 					<li><a ng-click="MapController.updateData('All')" class="btn-group-vertical btn-color">All Art</a></li>
 				</ul>
 		</div>
-		<div class="col-md-3">
-			<a ng-click="MapController.updateData('All','Parks_and_Recreation')" class="btn btn-primary btn-color box-shadow">Parks & Recreation</a>
+		<div class="dropdown col-md-3">
+			<button class="btn btn-color box-shadow" type="button" data-toggle="dropdown">Park Amenities
+		<span class="caret"></span></button>
+			<ul class="dropdown-menu">
+			<li><a ng-click="MapController.updateParkData('%tennis courts%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Tennis Courts</a></li>
+			<li><a ng-click="MapController.updateParkData('%basketball courts%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Basketball Courts</a></li>
+			<li><a ng-click="MapController.updateParkData('%picnic%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Picnic Tables</a></li>
+			<li><a ng-click="MapController.updateParkData('%golf%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Golf Course</a></li>
+			<li><a ng-click="MapController.updateParkData('%jogging%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Jogging Paths</a></li>
+			<li><a ng-click="MapController.updateParkData('%swimming pool%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Swimming Pools</a></li>
+			<li><a ng-click="MapController.updateParkData('%grill%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Barbecue Areas</a></li>
+			<li><a ng-click="MapController.updateParkData('%children%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Child Friendly</a></li>
+		</ul>
 		</div>
 	</div>
 
