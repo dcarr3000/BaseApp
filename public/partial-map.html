@@ -1,8 +1,6 @@
 <div class="container-fixed">
 	<div class="col-md-offset-2">	
-		<div class="tooltip">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
-</div>
+		
 		<div class="dropdown col-md-3">
 			<button class="btn btn-color box-shadow" type="button" data-toggle="dropdown">Art Categories
 			<span class="caret"></span></button>
@@ -35,6 +33,28 @@
 			<li><a ng-click="MapController.updateParkData('%children%','Parks_and_Recreation')" class="btn-group-vertical btn-color">Child Friendly</a></li>
 		</ul>
 		</div>
+		<button type="button" class="btn-group-vertical btn-color" data-toggle="modal" data-target="#myModal">Click for Map Help</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Map Help</h4>
+      </div>
+      <div class="modal-body">
+        <p>Use dropdown menus to change categories of interest<br>Click on markers for more information<br>Explore and enjoy</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 	</div>
 
 	<div class="col-md-12 col-md-offset-2">
