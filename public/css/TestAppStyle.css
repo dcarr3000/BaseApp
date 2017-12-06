@@ -1,10 +1,8 @@
 /*Test App Style Sheet*/
 
 body {
-
 		margin: 0px;
 		padding: 0px;
-		position: relative;
         
 }
 
@@ -64,8 +62,8 @@ body {
 }
 
 .banner{
-	background-color:#000000 !important;
-	box-shadow: 4px 4px 4px 4px #000000;
+	background-color:#666666 !important;
+	box-shadow: 4px 4px 4px 4px #666666;
     position: fixed;
     z-index: 10;
 }
@@ -75,40 +73,38 @@ body {
 }
 
 .overall{
-	 background-color: #37474F;
+	 background-color: #666666;
 	 padding-top: 10px;
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
      border-radius: 2%;
      padding: 1em;
+	 margin-right: 0.5em;
 }
 
 .overallDetails{
-	 background-color: #37474F;
+	 background-color: #666666;
 	 padding-top: 10px;
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
      border-radius: 2%;
      padding: 1em;
-	 margin-left: 2em;
 }
 
-.buttonOverall{
-	background-color: #37474F;
+.col-md-3{
+	/*background-color: #666666;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	border-radius: 10%;
-	padding: 1em;
-	margin-bottom: 2em;
+	border-radius: 10%; */
+	padding-left: 2em;
+	margin-bottom: 1em;
 }
+
 
 .details_text{
 	color: white;
 	font-size; 12pt;
-	
 }
 
-
-
-.cursive-text {
-		font: 400 40px 'Great Vibes', Helvetica, sans-serif;
+.main-text {
+		font: 400 40px 'nimbus-sans', Helvetica, sans-serif; 
 		color: #fff; 
 		padding-right: 0.5em;
 }
@@ -120,11 +116,11 @@ body {
 #map_canvas {
     height: 60%;
     width: 100%;
+	border-radius: 2%;
 }
 
-
 div.map-card {
-    background-color:ffffff;
+    background-color: ffffff;
 }
 
 
@@ -137,10 +133,6 @@ div.map-card {
 	text-align: center;
 	background-color: #c9c1b8 ;
 }
-
- #map_canvas {
-		border-radius: 2%;
-            } 
 
 
 .angular-google-map-container {
@@ -167,30 +159,23 @@ div.map-card {
 
 .btn-color {
 			color: #fff !important;
-			background-color: #B71C1C !important;
-			border-color: #B71C1C !important;
+			background-color: #e55544 !important;
+			border-color: #e55544 !important;
 }
 
 .btn-link {
 		color: #fff !important;
 		font-size: 12pt !important;
+		font-family:'nimbus-sans', Helvetica, sans-serif; 
 		
 }
 
 .dropdown-menu{
 	background-color: #B71C1C !important;
-	opacity: 0.7 !important;
+	opacity: 0.8 !important;
 	
 }
 
-
-.dropdown {
-	margin-left: 2em;
-}
-
-.btn-primary{
-	margin-left: 11em;
-}
 [ng-click] {
 	cursor: pointer;
 	
@@ -207,7 +192,7 @@ ul li a:hover {
 
 @media only screen and (max-width: 991px) {
     .cursivetext {
-       font: 400 20px 'Great Vibes', Helvetica, sans-serif;
+       font: 400 20px 'nimbus-sans', Helvetica, sans-serif;
     }
 }
 
